@@ -2,141 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Menghitung Banyak Benda</title>
+<title>BAB 1</title>
 <script src="phaser.min.js"></script>
+<script type="text/javascript"></script>
+<script src="Bab1.4.js"></script>
 </head>
 
 <body>
-<div align="center">
-<div id="header">
-<h2 style="background-color:#BA945E;">Membilang dan Menghitung Benda 1 - 20</h2>
-<h3> Urutkan dari yang terkecil ke yang terbesar . . . .</h3>
-</div>
-</div>
-<div class="body" style="background-color:#000">
-<div align="center">
-<script type="text/javascript">
-window.onload = function(){
-	var game = new Phaser.Game(1334, 720, Phaser.AUTO, '', {preload: preload, create: create, update: update});
-	function preload() {
-		game.load.image('bg','PNG/Background1.png');
-		game.load.image('satu', 'PNG/1.png');
-		game.load.image('dua', 'PNG/2.png');
-		game.load.image('tiga', 'PNG/3.png');
-		game.load.image('empat', 'PNG/4.png');
-		game.load.image('lima', 'PNG/5.png');
-		game.load.image('piring', 'PNG/piring.png');
-		game.load.image('piring1', 'PNG/piring.png');
-		game.load.image('piring2', 'PNG/piring.png');
-		game.load.image('piring3', 'PNG/piring.png');
-		game.load.image('piring4', 'PNG/piring.png');
-	}
-	
-	var result = 'Drag a sprite';
-	
-	function create() {
-		back = game.add.sprite(0, 0, 'bg');
-		s1 = game.add.sprite(110,420, 'piring');
-		s2 = game.add.sprite(330,390, 'piring1');
-		s3 = game.add.sprite(550,420, 'piring2');
-		s4 = game.add.sprite(770,390, 'piring3');
-		s5 = game.add.sprite(990,420, 'piring4');
-		game.physics.startSystem(Phaser.Physics.ARCADE);
-		
-		var satu = game.add.sprite(370, 20, 'satu');
-		var dua = game.add.sprite(810, 20, 'dua');
-		var tiga = game.add.sprite(150, 20, 'tiga');
-		var empat = game.add.sprite(590, 20, 'empat');
-		var lima = game.add.sprite(1030, 20, 'lima');
-		
-		satu.inputEnabled = true;
-		dua.inputEnabled = true;
-		tiga.inputEnabled = true;
-		empat.inputEnabled = true;
-		lima.inputEnabled = true;
-		
-		
-		satu.input.enableDrag(true);
-		dua.input.enableDrag(true);
-		tiga.input.enableDrag(true);
-		empat.input.enableDrag(true);
-		lima.input.enableDrag(true);
-
-		
-		group.inputEnableChildren = true;
-		
-		
-		satu.events.onDragStarat.add(onDragStart, this);
-		satu.events.onDragStop.add(onDragStop, this);
-		
-		
-		dua.events.onDragStarat.add(onDragStart, this);
-		dua.events.onDragStop.add(onDragStop, this);
-		
-		tiga.events.onDragStarat.add(onDragStart, this);
-		tiga.events.onDragStop.add(onDragStop, this);
-		
-		
-		empat.events.onDragStarat.add(onDragStart, this);
-		empat.events.onDragStop.add(onDragStop, this);
-		
-		empat.events.onDragStarat.add(onDragStart, this);
-		empat.events.onDragStop.add(onDragStop, this);
-		
-		
-		lima.events.onDragStarat.add(onDragStart, this);
-		lima.events.onDragStop.add(onDragStop, this);
-		
-		group.onChildInputDown.add(onDown, this);	
-			
-	}
-	
-	function onDown(sprite, pointer){
-		result = "Down" + sprite.key;
-		console.log('down', sprite.key);
-	}
-	
-	function onDragStart(){
-		result = "Dragging" + sprite.key;
-	}
-	
-	function onDragStop(){
-		result = sprite.key + " dropped at x:" + pointer.x + " y: " + pointer.y;
-
-    if (pointer.y = 400)
-    {
-        console.log('input disabled on', sprite.key);
-        sprite.input.enabled = false;
-
-        sprite.sendToBack();
-    }
-	}
-	
-	
-	function render(){
-		game.debug.text(result, 10, 20);
-	}
-	
-	
-	function update() {
-		
-	}
-}
-
-</script>
-</div>
-</div>
-<div class="button" style="background-color:#FFF;">
-	<div align="right">
-	   <a href="#">
-
-       <button style="border:0px; background-color:#FFF;">
-       		<span style="margin:10px 0 15px -76px; position:absolute; font-size:24px;">Check</span>
-       		<span><img src="PNG/centang.png" style="width:60px; height:60px;"/></span>
-        </button>
-
-</a> 
+	<div id="header" style="background-color:#F96; width:50%;" >
+    	<h2>BAB 1 - Membilang Banyak Benda dari 1 sampai 20</h2>
     </div>
-</div>
 </body>
-</html>
+</html> 

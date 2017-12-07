@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Menghitung Banyak Benda</title>
+<script src="phaser.min.js"></script>
+</head>
+
+<body>
+<div align="center">
+<div id="header">
+<h2 style="background-color:#BA945E;">Membilang dan Menghitung Benda 1 - 20</h2>
+<h3> Sebutkan banyak benda . . . .</h3>
+</div>
+</div>
+<div class="body" style="background-color:#000">
+<div align="center">
+<script type="text/javascript">
+var game;
+ 
+var gameOptions = {
+ 
+	// maximum length of the sum
+	maxSumLen: 5,
+ 
+	// local storage name used to save high score
+	localStorageName: "oneplustwo",
+ 
+	// time allowed to answer a question, in milliseconds
+	timeToAnswer: 3000,
+ 
+	// score needed to increase difficulty
+	nextLevel: 400
+}
+window.onload = function(){
+	game = new Phaser.Game(1334, 720, Phaser.CANVAS);
+	
+	// create "PlayGame" state and start it
+	game.state.add("PlayGame", playGame, true);
+}
+// "PlayGame" state
+var playGame = function(game){}
+playGame.prototype = {
+
+	preload: function () {
+		game.load.image('bg','PNG/Background1.png');
+		game.load.image('satu', 'PNG/1.png');
+	}
+	
+	
+	
+	create: function () {
+		back = game.add.sprite(0, 0, 'bg');
+	}
+	
+	update: function () {
+		
+	}
+}
+
+</script>
+</div>
+</div>
+<div class="button" style="background-color:#FFF;">
+	<div align="right">
+	   <a href="#">
+
+       <button style="border:0px; background-color:#FFF;">
+       		<span style="margin:10px 0 15px -76px; position:absolute; font-size:24px;">Check</span>
+       		<span><img src="PNG/centang.png" style="width:60px; height:60px;"/></span>
+        </button>
+
+</a> 
+    </div>
+</div>
+</body>
+</html>
