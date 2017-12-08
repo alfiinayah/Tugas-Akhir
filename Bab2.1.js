@@ -19,9 +19,15 @@ var game = new Phaser.Game(1334, 720, Phaser.AUTO, '', {preload: preload, create
 	var bintang;
 	var TeksSkor;
 	var skor = 0;
+	var Score = 0;
+	var nilai;
 	var randomA;
 	var randomB;
 	var waktu = 60;
+	var c;
+	var win = false;
+	var berhenti;
+	var temptimer=0;
 	
 	function create() {	
 				//random
@@ -32,7 +38,7 @@ var game = new Phaser.Game(1334, 720, Phaser.AUTO, '', {preload: preload, create
 		randomB = Math.floor(Math.random() * x) +1;
 		console.log(randomB);
 		
-		var c = randomA + randomB;
+		c = randomA + randomB;
 		console.log(c);
 		
 		//physic arcade
@@ -42,7 +48,7 @@ var game = new Phaser.Game(1334, 720, Phaser.AUTO, '', {preload: preload, create
 		game.add.sprite(0, 0, 'langit');
 		
 		//button
-		var button = game.add.button(game.world.centerX -570 ,40,"button", clickMe,this,1, 0, 1);
+		var button = game.add.button(game.world.centerX -570 ,40,"button", openWindow,this,1, 0, 1);
 		button.anchor.set(0.5,0.5);
 		
 		//soal
@@ -85,25 +91,34 @@ var game = new Phaser.Game(1334, 720, Phaser.AUTO, '', {preload: preload, create
 			star.body.bounce.y = 0.7 + Math.random() * 0.2;
 		}
 		
-		//score
-		TeksSkor = game.add.text(20, 680, 'Terkumpul : 0', {fontSize: '32px', fill: '#fff'});		
+		//jamur yang didapat
+		TeksSkor = game.add.text(20, 680, 'Terkumpul : 0', {fontSize: '32px', fill: '#fff'});	
+		
+		//Score
+		nilai = game.add.text(1040, 205, 'Score : 0', {fontSize: '30px', fill: '#fff'});
 	
 	}
 	
-	function clickMe(){
-		console.log("CLICKED");
-	}
 	
-	function cek(){
+	function openWindow(){
 		 if(skor == c)
 		 {
+			 alert('Berhasil');
+			 Score += 100 * temptimer;
+			 alert(nilai.text = 'Score : 0' +Score);
+			 clearInterval(berhenti);
 			 return true; 
 		 }
 		 else
 		 {
+			 alert('Coba Lagi');
+			 skor = 0;
+			 game.state.restart();
 			 return false;
 		 }
+		//console.log("CLICKED");
 	}
+	
 	
 	function ambilBintang(pemain, star)
 	{
@@ -112,7 +127,6 @@ var game = new Phaser.Game(1334, 720, Phaser.AUTO, '', {preload: preload, create
 		TeksSkor.text = 'Terkumpul : ' + skor;
 		
 	}
-	
 	
 	function update() {
 		game.physics.arcade.collide(pemain, pijakan);
@@ -152,9 +166,11 @@ var game = new Phaser.Game(1334, 720, Phaser.AUTO, '', {preload: preload, create
 		
 	}
 	
+	
+	
 	function startTimer(duration, display){
-		 var timer = duration, seconds;
-    setInterval(function () {
+		var timer = duration, seconds;
+    berhenti = setInterval(function () {
         minutes = parseInt(timer / 60, 10)
         seconds = parseInt(timer % 60, 10);
 
@@ -162,6 +178,8 @@ var game = new Phaser.Game(1334, 720, Phaser.AUTO, '', {preload: preload, create
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         display.textContent = minutes + ":" + seconds;
+		
+		temptimer=timer;
 
         if (timer > 0) {
             timer--;
@@ -173,7 +191,6 @@ var game = new Phaser.Game(1334, 720, Phaser.AUTO, '', {preload: preload, create
     	var sixtysecond = 60 * 1,
         display = document.querySelector('#time');
     	startTimer(sixtysecond, display);
-		
 	};
 	 
 	
